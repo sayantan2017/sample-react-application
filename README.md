@@ -28,8 +28,11 @@ Here removed existing default codes like 'reportWebVitals' and 'React.StrictMode
 The 'Menu' is shared content for all the pages in any application. So let's create separate components like 'Layout.js' inside of a new folder path like 'components/shared'.
 src/components/shared/Layout.js:
 ![image](https://github.com/sayantan2017/sample-react-application/assets/26603086/8302d2e5-03ab-419d-bd80-fe3bef4af233)
-Here 'Layout' is our component function's entire logic is added inside of it and this function returns JSX content. The 'Layout' function has input params like 'props' which gives access to the either custom or default properties.
+
+ Here 'Layout' is our component function's entire logic is added inside of it and this function returns JSX content. The 'Layout' function has input params like 'props' which gives access to the either custom or default properties.
+ 
 (Line: 1&2) Imported the react-bootstrap component like 'Container' & 'Navbar'.
+
 (Line: 13) The 'Layout' function must be reander as custom tag like '<Layout></Layout>'. So to read the content inside of the 'Layout' element we have to use 'props.children' and to render content we have to ReactJS expression like '{}'(this can render plain text, HTML, even execute logic expression)
 
 
