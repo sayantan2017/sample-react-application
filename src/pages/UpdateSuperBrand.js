@@ -1,26 +1,39 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import axiosBaseURL from '../pages/enviroment';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
  
-function AddSuperBrand() {
-  const ProductName = useRef("");
-  const Brand = useRef("");
-  const Type = useRef("");
-  const cost = useRef("");
+function UpdateSuperBrand() {
+    const ProductName = useRef("");
+    const Brand = useRef("");
+    const Type = useRef("");
+    const cost = useRef("");
  
   const navigate = useNavigate();
  
-  function addSuperBrandHandler() {
+  const { id } = useParams();
+ 
+  useEffect(() => {
+    axiosBaseURL.get(`/GetById/${id}`).then((response) => {
+        console.log(response.data[0].type);
+        ProductName.current.value = response.data[0].productName;
+        Brand.current.value = response.data[0].brand;
+        Type.current.value = response.data[0].type;
+        cost.current.value = response.data[0].cost;
+    });
+  }, []);
+ 
+  function updateVillainHandler() {
     var payload = {
         ProductName: ProductName.current.value,
         Brand: Brand.current.value,
         cost: cost.current.value,
-        Type: Type.current.value   
+        Type: Type.current.value,
+        id: id,
     };
     axiosBaseURL
-      .post('/add', payload)
+      .put(`/update/`, payload)
       .then((response) => {
         navigate("/");
       });
@@ -28,7 +41,7 @@ function AddSuperBrand() {
  
   return (
     <>
-      <legend>Add A New Super Brand</legend>
+       <legend>Update Super Brand</legend>
       <form>
         <Form.Group className="mb-3" controlId="formProductName">
           <Form.Label>Super Product Name</Form.Label>
@@ -47,10 +60,10 @@ function AddSuperBrand() {
           <Form.Control type="text" ref={cost} />
         </Form.Group>
       </form>
-      <Button variant="primary" type="button" onClick={addSuperBrandHandler}>
+      <Button variant="primary" type="button" onClick={updateVillainHandler}>
         Submit
       </Button>
     </>
   );
 }
-export default AddSuperBrand;
+export default UpdateSuperBrand;
