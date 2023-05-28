@@ -93,5 +93,121 @@ The 'useRef()' loads from the 'react' library. This variable of type 'useRef' ca
 
 (Line: 15-28) The 'addSuperBrandHandler' is a function that holds logic to post the form data to the HTTP Post API call. 
 
+![image](https://github.com/sayantan2017/sample-react-application/assets/26603086/a0121921-0f91-4085-bbef-91d3bc1ef28b)
+
+(Line: 16-21) API payload object and here we can observe that to read the form filed value we are using eg:'ProductName.current.value' that means we accessing reference of the HTML element to read its value.
+
+![image](https://github.com/sayantan2017/sample-react-application/assets/26603086/59951464-1095-471c-ba15-6564d777bdd6)
+
+
+(22-26) Axios post call invocation, on success navigating back to the home page('AddSuperBrand.js component is our home page and routing will be configured in upcoming steps')
+
+![image](https://github.com/sayantan2017/sample-react-application/assets/26603086/409724df-0913-41c4-abaf-4e232ae3ac87)
+
+(33-47) Each form field is mapped to the 'ref' attribute to get access of fields.
+
+![image](https://github.com/sayantan2017/sample-react-application/assets/26603086/d0363cab-99c5-4dcd-94b1-2b26ec44de88)
+
+
+(51-53) Form submit it click event can be raised using 'onClick'. Here we need to register the 'addSuperBrandHandler' to the 'onClick' event.
+
+![image](https://github.com/sayantan2017/sample-react-application/assets/26603086/1d17d5bc-fe97-460f-8813-c19588894030)
+
+(Line: 5) Initialized the 'useNavigate()' that loads from the 'react-router-dom' library.
+
+/**************************** Configure The Component Routing Navigation: ****************************************/
+
+In App.js file
+
+![image](https://github.com/sayantan2017/sample-react-application/assets/26603086/48d70a48-3f93-44b8-b567-17859bea8f10)
+
+
+/************************************************ Create A 'UpdateSuperBrand' Component In React App:******************************/
+
+Add Route details in App.js
+
+![image](https://github.com/sayantan2017/sample-react-application/assets/26603086/473c4f08-a750-4e89-88e4-420ec686489d)
+
+Add Update details 
+
+![image](https://github.com/sayantan2017/sample-react-application/assets/26603086/1792c2fc-3e0b-4b6c-8d68-ac828b30176f)
+
+![image](https://github.com/sayantan2017/sample-react-application/assets/26603086/356f330f-41e4-40cd-a4da-1b7d84d7c0bd)
+
+(Line: 8-11) Declared the 'useRef' variables which we use to read the form data.
+
+(Line: 13) Declared 'navigate' variable of type 'useNavigate()'.
+
+(Line: 15) The 'useParams()' loads from the 'react-router-dom' helps to read the dynamic data from the route.
+
+(Line: 17-24) Fetching the record to edit based on the 'id' value. To execute this API call only once we pass an empty array as the second parameter to the 'useEffect()'.
+
+(Line: 26-39) Invoking the HTTP put API call for updating the record.
+
+![image](https://github.com/sayantan2017/sample-react-application/assets/26603086/50673a20-f2d8-4323-83ab-cb1477ea4b91)
+
+
+(Line: 63-65) The button click event registered with the 'updateVillainHandler' method.
+
+
+Let's add the 'Edit' button on to the 'AllBrand' component.
+
+![image](https://github.com/sayantan2017/sample-react-application/assets/26603086/e4122d49-455f-4b23-b7fb-26ccd2c53d82)
+
+
+/************************************* Create A Shared React Component Like 'Delete':**********************************************************/
+
+![image](https://github.com/sayantan2017/sample-react-application/assets/26603086/2bb29f2f-d0f3-4c68-8956-bd8ea01a42c2)
+
+(Line: 8) The  'show' is the boolean property of the 'Modal' component. The parent component passes its value through 'props.showModal'(here showModal is our custom property name which must be passed by the parent component and its value should be boolean). So if 'show' property receives 'true' then opens up the modal.
+
+(Line: 9-10) The 'onHide' get triggered by the 'x'(close button) on the right-top corner of the modal. Here 'onHide' register with arrow function which internally calls a method of parent component like 'props.hideConfirmDeleteHandler'.
+
+(Line: 15) Dynamic 'props.title' property for the modal title.
+
+(Line: 17) Dynamic 'props.body' property for the modal body.
+
+(Line: 19-26) Close button, click event register with arrow function which internally calls a method parent component like 'props.hideConfirmDeleteHandler'.
+
+(Line: 27-34) Confirm Delete button, click event register with arrow function which internally calls a method of parent component like  'props.ConfirmDeleteHandler'.
+
+/***************** Invoke The 'Delete' Component From The 'AllBrand' Component:**************************/
+
+![image](https://github.com/sayantan2017/sample-react-application/assets/26603086/3aee5886-07ee-42d5-831c-6ec7abb32cdb)
+
+
+
+(Line: 14) The 'showModal' & 'setShowModal' are useState variables used to show and hide the modal.
+(Line: 15) The 'itemToDeleteId' & 'setItemToDeleteid' are useState variables used to maintain id of the record that need to be deleted.
+
+![image](https://github.com/sayantan2017/sample-react-application/assets/26603086/7ae2edfa-da7f-44ec-ad63-d9202c81bd71)
+
+
+(Line: 25-34) The function 'confirmDeleteHandler' contains logic to invoke the delete API call. 
+
+![image](https://github.com/sayantan2017/sample-react-application/assets/26603086/3caeb433-dd19-4458-a62f-ff22faca8419)
+
+
+After deleting API success we are updating a few 'useState'. The 'setShowModal' is assigned to false to close the modal. The 'setsuperAllbrand' update to remove the deleted from it. The 'setItemToDeleteId' value assigned to '0'.
+
+![image](https://github.com/sayantan2017/sample-react-application/assets/26603086/907b767f-9ef5-4441-8e06-686392d5fe05)
+
+
+(Line: 37-40) The function 'showConfirmDeleteHandler' will invoke by the delete button. It contains logic like 'setShowModal' to true which opens the delete confirmation modal and 'setItemToDeleteId' value contains the record item to be deleted.
+
+![image](https://github.com/sayantan2017/sample-react-application/assets/26603086/39fbd0ce-9dfc-49b3-a814-b63ffd342654)
+
+
+(Line: 42-46) The function 'hideConfirmationDeleteHandler' will invoke by the 'cancel' button on modal. It contains logic like 'setShowModal' to true which closes the modal and 'setItemToDelteId' reset to value '0'.
+
+![image](https://github.com/sayantan2017/sample-react-application/assets/26603086/be3ae492-5916-4085-9b84-f37decc2b40b)
+
+
+(Line: 46-52) Rendered the 'DeleteConfirmation' component with dynamic input properties like 'showModal', 'title', 'body', 'confirmDeleteHandler', 'hideConfirmDeleteHandler'.
+
+![image](https://github.com/sayantan2017/sample-react-application/assets/26603086/286c2085-2cc6-42c1-96bc-1e1c6472a6d0)
+
+
+(Line: 92-98) The 'Delete' button clicks the event registered with the arrow function. The logic inside of the arrow function is to invoke the 'showConfirmDelteHandler' by inputting the 'id' of the item to delete.
 
 
