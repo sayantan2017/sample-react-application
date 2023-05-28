@@ -65,5 +65,33 @@ The 'useEffect' loads from the 'react' library. The 'useEffect(()=> {},[])' cont
 
 ![image](https://github.com/sayantan2017/sample-react-application/assets/26603086/16e7730f-6d0e-4ad7-aec6-ebb494b4e57c)
 
+(Line: 67) The 'Col' component specified the 'key' property which is recommended to provide unique value for looping items.
+
+![image](https://github.com/sayantan2017/sample-react-application/assets/26603086/d4606fba-4a43-4ba4-bf54-a7a3004ae431)
+
+/*******************Create 'AddSuperBrand' Component In React App:*******************************/
+
+On the 'pages' folder let's create a new react js component like 'AddSuperBrand'.
+
+Install React Router Package:
+
+We add a 2nd-page component in our application which means page components need to be loaded as per their navigation. So to implement navigation we need to install the React Router library
+
+npm i react-router-dom
+
+Create Form To Consume HTTP Post API Call In React App:
+
+Let's create a form to add the new item with the help of the HTTP Post API call.
+
+![image](https://github.com/sayantan2017/sample-react-application/assets/26603086/25357ac5-32c6-4045-b544-37f962bb922c)
+
+![image](https://github.com/sayantan2017/sample-react-application/assets/26603086/1d552c2f-faa6-4f0d-b04f-c1729872a724)
+
+The 'useRef()' loads from the 'react' library. This variable of type 'useRef' can be mapped with the 'ref' attribute of an HTML tag so that we can access the element values with it. So it is very useful for reading the form data.
+
+(Line: 8-11) Here constant variable is initialized with 'useRef', so all these variables will be mapped with form fields to read the field values.
+
+(Line: 15-28) The 'addSuperBrandHandler' is a function that holds logic to post the form data to the HTTP Post API call. 
+
 
 
