@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+/******* Command to create the ReactJS application. *********/
+npx create-react-app sample-react-application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+/****Let's go through the project and explore important files. ****/
 
-## Available Scripts
+index.html: Inside the public folder we can see the index.html. Only the HTML file of the entire ReactJS application. It contained a 'div' element whose 'id' value is 'root', inside of this element all ReactJS components get rendered.
 
-In the project directory, you can run:
+index.js: Entry javascript file for ReactJS. It helps paint 'App' component content in 'index.html'.
 
-### `npm start`
+App.js: The 'App.js' react component. It returns the 'JSX'(Javascript XML) content(JSX means writing HTML code inside of javascript directly).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+/***Install ReactJS Bootstrap:***/
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+ReactJS Bootstrap is just built on Bootstrap. So that all UI components are straightforward to integrate into the ReactJS application.
 
-### `npm test`
+Command to install the ReactJS Bootstrap.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+npm install react-bootstrap bootstrap
 
-### `npm run build`
+/*****Now import the bootstrap CSS node module file reference on the 'index.js'*******/
+src/index.js:
+![image](https://github.com/sayantan2017/sample-react-application/assets/26603086/e2e7c4bf-8806-48a5-b0aa-8595273389aa)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[Line: 5] Added the bootstrap CSS file reference.
+Here removed existing default codes like 'reportWebVitals' and 'React.StrictMode'(react component) which we won't require for the local learners.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+/**Add React Bootstrap Menu:**/
+The 'Menu' is shared content for all the pages in any application. So let's create separate components like 'Layout.js' inside of a new folder path like 'components/shared'.
+src/components/shared/Layout.js:
+![image](https://github.com/sayantan2017/sample-react-application/assets/26603086/8302d2e5-03ab-419d-bd80-fe3bef4af233)
+Here 'Layout' is our component function's entire logic is added inside of it and this function returns JSX content. The 'Layout' function has input params like 'props' which gives access to the either custom or default properties.
+(Line: 1&2) Imported the react-bootstrap component like 'Container' & 'Navbar'.
+(Line: 13) The 'Layout' function must be reander as custom tag like '<Layout></Layout>'. So to read the content inside of the 'Layout' element we have to use 'props.children' and to render content we have to ReactJS expression like '{}'(this can render plain text, HTML, even execute logic expression)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
